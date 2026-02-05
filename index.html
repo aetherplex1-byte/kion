@@ -1,41 +1,81 @@
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KION Peruvian Chinese</title>
+    <title>KION Peruvian Chinese - Premium Catalog</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --kion-red: #8B0000;
+        --kion-gold: #D4AF37;
+        --kion-cream: #FDF5E6;
+      }
       body {
         font-family: 'Montserrat', sans-serif;
-        background-color: #F2E8D5;
+        background-color: var(--kion-cream);
+        color: #2D2D2D;
+        overflow-x: hidden;
       }
-      h1, h2, h3, .serif {
+      h1, h2, h3, h4, .serif {
         font-family: 'Crimson Pro', serif;
       }
+      
+      /* Subtle Paper Texture */
+      .paper-bg {
+        background-color: var(--kion-cream);
+        background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+      }
+
       .custom-scroll::-webkit-scrollbar {
-        height: 4px;
+        height: 3px;
+        width: 3px;
       }
       .custom-scroll::-webkit-scrollbar-thumb {
-        background: #8B0000;
+        background: var(--kion-red);
         border-radius: 10px;
       }
+      
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .premium-shadow {
+        box-shadow: 0 10px 30px -10px rgba(139, 0, 0, 0.1);
+      }
+      
+      .gold-gradient {
+        background: linear-gradient(135deg, #D4AF37 0%, #F5E0A3 50%, #B8860B 100%);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+      }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
-  }
-}
-</script>
-</head>
-  <body>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "react": "https://esm.sh/react@^19.2.4",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+      }
+    }
+    </script>
+  </head>
+  <body class="paper-bg">
     <div id="root"></div>
+    <!-- CRITICAL: Added entry point script to fix Vercel white screen -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
